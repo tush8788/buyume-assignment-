@@ -4,6 +4,8 @@ const port=8000;
 
 const app=express();
 
+app.use(express.urlencoded({extended:true}));
+
 app.use('/',require('./routes/index.js'));
 
 app.listen(port,function(err){
