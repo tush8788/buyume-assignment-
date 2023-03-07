@@ -6,7 +6,7 @@ module.exports.updateProduct = async function (req, res) {
         for (let pro of req.body.payload) {
           
             //find product avalible in DB 
-            let product =await ProductDB.findOne({productId: pro.pid});
+            let product =await ProductDB.findOne({productId: pro.productId});
 
             //if product not found just return 
             if (!product) {
@@ -16,11 +16,11 @@ module.exports.updateProduct = async function (req, res) {
             }
             //find oprations 
             if (pro.operation == 'add') {
-                product.qty = parseInt(product.qty) + parseInt(pro.qty);
+                product.qty = parseInt(product.qty) + parseInt(pro.quantity);
                 product.save();
             }
             else if (product.operation == 'subtract') {
-                product.qty = parseInt(product.qty) - parseInt(pro.qty);
+                product.qty = parseInt(product.qty) - parseInt(pro.quantity);
                 product.save();
             }
 
