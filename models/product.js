@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-
+//schema
 const productSchema=new mongoose.Schema({
     productId:{
         type:String,
